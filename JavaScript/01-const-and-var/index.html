@@ -20,6 +20,94 @@
         const actual = max - 13;
         const percentage = actual / max;
         console.log(percentage);
+
+        // camelize
+        function camelize(str) {
+            var words = str.split('-');
+            for (var i = 1; i < words.length; i++) {
+                words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
+            }
+            return words.join('');
+        }
+
+        console.log(camelize("background-color"));
+        console.log(camelize("list-style-image"));
+        console.log(camelize("-webkit-transition"));
+
+        //filter in range
+        function filterRange(arr, a, b) {
+            return arr.filter(item => (item >=a && item <=b));
+        }
+
+        console.log(filterRange([5, 3, 8, 1], 1, 4));
+
+        //filter range in place
+        function filterRangeInPlace(arr, a, b) {
+            for (let i = 0; i< arr.length; i++) {
+                let val = arr[i];
+
+                if (val < a || val > b) {
+                    arr.splice(i, 1);
+                    i--;
+                }
+            }
+        }
+        
+        let arr = [5, 3, 8, 1];
+        filterRangeInPlace(arr, 1, 4);
+        console.log(arr);
+
+        // sort descending
+        let arr2 = [5, 2, 1, -10, 8];
+        arr2.sort((a,b) => b - a);
+        console.log(arr2);
+
+        // sort with copy
+        let arr3 = ["HTML", "JavaScript", "CSS"];
+
+        function copySorted(arr) {
+            return arr3.slice().sort();
+        }
+
+        let sorted = copySorted(arr3);
+
+        console.log( sorted );
+        console.log( arr3 ); 
+
+        // shuffle array
+
+        let arr4 = [1, 2, 3];
+
+        function shuffle(arr) {
+            arr.sort(() => Math.random() - 0.5);
+        }
+
+        shuffle(arr4);
+        console.log(arr4);
+        shuffle(arr4);
+        console.log(arr4);
+        shuffle(arr4);
+        console.log(arr4);
+
+        function unique(arr) {
+            let result = [];
+
+            for (let str of arr) {
+                if (!result.includes(str)) {
+                    result.push(str);
+                }
+            }
+
+            return result;
+        }
+
+        let strings = ["Hare", "Krishna", "Hare", "Krishna",
+        "Krishna", "Krishna", "Hare", "Hare", ":-O"
+        ];
+
+        console.log( unique(strings) );
+        
+        
     </script>
 </body>
 </html>
